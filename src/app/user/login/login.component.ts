@@ -30,7 +30,8 @@ public signinFunction(){
 let data={email:this.email,
           password:this.password}
 
-this.appService.userLogin(data).subscribe(data=>{this.toastr.success("Login Succesful")},
+this.appService.userLogin(data).subscribe(data=>{this.toastr.success("Login Succesful");
+console.log(data)},
 error=>{this.toastr.error("there was an error")});
 
 

@@ -13,7 +13,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 @Injectable()
 export class AppService {
 
-  public baseUrl="https://chatapi.edwisor.com/api/v1/";
+  public baseUrl="https://chatapi.edwisor.com/api/v1";
   
 public apiKey='NzE3YTZlODRmYzI3NzczMDc3MjM2YjJmOTFmZTkzMTM5YTk0ZjQ0NmI5YjUyYTQ3ODhhYzQ3OThhZjI5ODEzMzdiYzVmMDRhMDcyMWQzZjQ5MWIzNmEwOTRmNjQ5ODcyZmUzZmYzOGI1NzY2ZGE1NmRjMTVkYWRlM2NmZWYxZmRkNw==';
 
@@ -37,6 +37,16 @@ public apiKey='NzE3YTZlODRmYzI3NzczMDc3MjM2YjJmOTFmZTkzMTM5YTk0ZjQ0NmI5YjUyYTQ3O
           .set("email",data.email);
    return this.http.post(`${this.baseUrl}/users/login`,params);
 
+  }
+
+//methods to get and set userinfo in local storage as cookies
+public getUserInfoFromLocalStorage=()=>{
+  return JSON.parse(localStorage.getItem('userInfo'));
+}
+
+  public setUserInfoInLocalStorage= (data)=>{
+    localStorage.setItem('UserInfo',JSON.stringify(data));
+  
   }
 
 }
