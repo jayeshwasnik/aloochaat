@@ -10,6 +10,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { HttpClientModule } from '@angular/common/http'; 
 
+//import { Cookie } from 'ng2-cookies/ng2-cookies';
+
 //we are using forchild instead of forrrot because this is not a root module
 @NgModule({
   imports: [
