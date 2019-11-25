@@ -32,7 +32,6 @@ export class ChatBoxComponent implements OnInit {
   ngOnInit() {
     this.authToken=this.cookieService.get('authToken');
     this.userInfo=this.AppService.getUserInfoFromLocalStorage();
-
     this.checkStatus();
     this.verifyUserConfirmation();
     this.getOnlineUserList();
@@ -48,7 +47,7 @@ return true;
   }
 }
 
-public verifyUserConfirmation:any ()=>{
+public verifyUserConfirmation:any =()=>{
 this.socketService.verifyUser.subscribe((data)=>{
   this.disconnectedSocket=false;
   this.socketService.setUser(this.authToken);
@@ -56,7 +55,7 @@ this.socketService.verifyUser.subscribe((data)=>{
 });
 }
 
-public getOnlineUserList ()=>{
+public getOnlineUserList =()=>{
   this.socketService.onlineUserList.subscribe((userList)=>{
 this.userList=[];
 for(x in userList){

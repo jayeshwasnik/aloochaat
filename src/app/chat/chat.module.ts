@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChatboxComponent } from './chatbox/chatbox.component';
+import { ChatboxComponent } from './chat-box/chat-box.component';
 import {RouterModule,Routes} from '@angular/router';
 
 @NgModule({
@@ -8,7 +8,6 @@ import {RouterModule,Routes} from '@angular/router';
     CommonModule,RouterModule.forChild([ 
       { path: 'chat', component: ChatBoxComponent }
     ])
-  ]
   ],
   declarations: [ChatboxComponent]
 })
