@@ -67,6 +67,37 @@ public disconnectedSocket=()=>{
 
      });//end observable
    }//end function 
+
+
+//events to be emitted
+
+public setUser=(authToken)=>{
+this.socket.emit("set-user",authToken);
+}//end setUser
+
+
+
+//error handling
+ private handleError(err: HttpErrorResponse) {
+
+    let errorMessage = '';
+
+    if (err.error instanceof Error) {
+
+      errorMessage = `An error occurred: ${err.error.message}`;
+
+    } else {
+
+      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+
+    } // end condition *if
+
+    console.error(errorMessage);
+
+    return Observable.throw(errorMessage);
+
+  }  // END handleError
+
    
 
 }
