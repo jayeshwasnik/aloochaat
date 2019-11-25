@@ -12,7 +12,8 @@ import {CookieService} from 'ngx-cookie-service';
 @Component({
   selector: 'app-chat-box',
   templateUrl: './chat-box.component.html',
-  styleUrls: ['./chat-box.component.css']
+  styleUrls: ['./chat-box.component.css'],
+  providers:[SocketService]
 })
 export class ChatBoxComponent implements OnInit {
   public authToken:any;
@@ -46,5 +47,26 @@ public checkStatus:any=()=>{
 return true;
   }
 }
+
+public verifyUserConfirmation:any ()=>{
+this.socketService.verifyUser.subscribe((data)=>{
+  this.disconnectedSocket=false;
+  this.socketService.setUser(this.authToken);
+  this.getOnlineUserList();
+});
+}
+
+public getOnlineUserList ()=>{
+  this.socketService.onlineUserList.subscribe((userList)=>{
+this.userList=[];
+for(x in userList){
+  let temp={'userId':x,'name':userList[x],'unread':0,'chatting':false};
+this.userList.push(temp);
+}
+
+console.log(this.userList);
+  });
+}
+
 
 }
