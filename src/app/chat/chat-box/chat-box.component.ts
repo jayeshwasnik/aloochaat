@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {SocketService} from './../../socket.service';
+import { SocketService } from './../../socket.service';
 
 import {AppService} from './../../app.service';
 
@@ -12,8 +12,7 @@ import {CookieService} from 'ngx-cookie-service';
 @Component({
   selector: 'app-chat-box',
   templateUrl: './chat-box.component.html',
-  styleUrls: ['./chat-box.component.css'],
-  providers:[SocketService]
+  styleUrls: ['./chat-box.component.css']
 })
 export class ChatBoxComponent implements OnInit {
   public authToken:any;
@@ -23,7 +22,7 @@ export class ChatBoxComponent implements OnInit {
   public userList:any[];
   public disconnectedSocket:boolean;
 
-  constructor(public cookieService:CookieService,public socketService:SocketService,public router:Router ) {
+  constructor(public cookieService:CookieService,public socketService:SocketService,public router:Router,public appService:AppService ) {
     this.recieverId=this.cookieService.get('recieverId');
     this.recieverName=this.cookieService.get('recieverName');
     
@@ -31,7 +30,7 @@ export class ChatBoxComponent implements OnInit {
 
   ngOnInit() {
     this.authToken=this.cookieService.get('authToken');
-    this.userInfo=this.AppService.getUserInfoFromLocalStorage();
+    this.userInfo=this.appService.getUserInfoFromLocalStorage();
     this.checkStatus();
     this.verifyUserConfirmation();
     this.getOnlineUserList();
@@ -58,7 +57,7 @@ this.socketService.verifyUser.subscribe((data)=>{
 public getOnlineUserList =()=>{
   this.socketService.onlineUserList.subscribe((userList)=>{
 this.userList=[];
-for(x in userList){
+for(let x in userList){
   let temp={'userId':x,'name':userList[x],'unread':0,'chatting':false};
 this.userList.push(temp);
 }

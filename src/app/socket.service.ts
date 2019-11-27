@@ -8,12 +8,17 @@ import {Cookie} from 'ng2-cookies/ng2-cookies';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/toPromise';
+import {ChatModule} from './chat/chat.module';
 
 //to use http params
 import{HttpHeaders,HttpParams} from '@angular/common/http';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
 
+// @Injectable({
+//   providedIn:'root'
+// })
 @Injectable()
+
 export class SocketService {
 
   private url='https://chatapi.edwisor.com';

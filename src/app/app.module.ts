@@ -24,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { AppService } from './app.service';
+import { SocketService } from './socket.service';
 
 
 import { Cookie } from 'ng2-cookies/ng2-cookies';
