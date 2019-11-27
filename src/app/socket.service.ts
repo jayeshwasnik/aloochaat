@@ -17,7 +17,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 // @Injectable({
 //   providedIn:'root'
 // })
-@Injectable()
+@Injectable({
+   providedIn: 'root'
+})
 
 export class SocketService {
 

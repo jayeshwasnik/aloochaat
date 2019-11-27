@@ -26,18 +26,18 @@ import { HelloComponent } from './hello.component';
 import { AppService } from './app.service';
 import { SocketService } from './socket.service';
 
-
+import { AppRoutingModule } from './app-routing.module';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 @NgModule({
-  imports:      [ BrowserModule,HttpClientModule, BrowserAnimationsModule,ToastrModule.forRoot(),FormsModule,ChatModule,UserModule,RouterModule.forRoot([
+  imports:      [ BrowserModule,HttpClientModule,AppRoutingModule, BrowserAnimationsModule,ToastrModule.forRoot(),FormsModule,ChatModule,UserModule,RouterModule.forRoot([
     {path:'login',component:LoginComponent},
     {path:'',redirectTo:'login',pathMatch:'full'},
-   
+   {path:'chat',component:ChatBoxComponent},
     {path:'*',component:LoginComponent},
     {path:'**',component:LoginComponent}
   ]) ],
-  declarations: [ AppComponent, HelloComponent],
+  declarations: [ AppComponent, HelloComponent,ChatBoxComponent],
   bootstrap:    [ AppComponent ],
   providers: [AppService,CookieService]
 })

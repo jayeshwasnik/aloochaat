@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SocketService } from './../../socket.service';
+import {SocketService} from './../../socket.service';
 
 import {AppService} from './../../app.service';
 
@@ -8,11 +8,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 //import { Cookie } from 'ng2-cookies/ng2-cookies';
 import {CookieService} from 'ngx-cookie-service';
 
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-chat-box',
   templateUrl: './chat-box.component.html',
-  styleUrls: ['./chat-box.component.css']
+  styleUrls: ['./chat-box.component.css'],
+   providers:[SocketService]
 })
 export class ChatBoxComponent implements OnInit {
   public authToken:any;

@@ -10,7 +10,9 @@ import 'rxjs/add/operator/toPromise';
 import{HttpHeaders,HttpParams} from '@angular/common/http';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AppService {
 
   public baseUrl="https://chatapi.edwisor.com/api/v1";
