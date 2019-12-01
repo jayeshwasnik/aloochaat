@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {CookieService} from 'ngx-cookie-service';
 
-
+import {LoginComponent} from './user/login/login.component';
 //for toastr
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -37,7 +37,7 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
     {path:'*',component:LoginComponent},
     {path:'**',component:LoginComponent}
   ]) ],
-  declarations: [ AppComponent, HelloComponent,ChatBoxComponent],
+  declarations: [ AppComponent,LoginComponent, HelloComponent,ChatBoxComponent],
   bootstrap:    [ AppComponent ],
   providers: [AppService,CookieService]
 })
