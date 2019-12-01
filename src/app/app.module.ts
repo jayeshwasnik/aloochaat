@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 //for routing module
 import {RouterModule,Routes} from '@angular/router';
 
+import { ChatBoxComponent } from './chat/chat-box/chat-box.component';
+
 //importing chat and usermodule 
 import {UserModule} from './user/user.module';
 import {ChatModule} from './chat/chat.module';
-import {LoginComponent} from './user/login/login.component';
+
 
 import { HttpClientModule } from '@angular/common/http'; 
 
